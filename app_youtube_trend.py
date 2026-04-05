@@ -48,132 +48,198 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# CSS — Design sombre original conservé
+# CSS — YouTube Theme (Warm Rose + Dark Sidebar)
 # ─────────────────────────────────────────────
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
-    .main {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-        color: #e8eaf6;
-    }
-    .stApp {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-    }
-    h1, h2, h3, h4 { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.5px; }
-    p, div, span, label { font-family: 'Inter', sans-serif; font-weight: 400; }
+    /* ── Main background: warm rose-white ── */
+    .main { background: #fff5f5; color: #1a1a1a; }
+    .stApp { background: #fff5f5; }
+
+    h1, h2, h3, h4 { font-family: 'Roboto', sans-serif; font-weight: 700; letter-spacing: -0.5px; color: #1a1a1a; }
+    p, div, span, label { font-family: 'Roboto', sans-serif; font-weight: 400; color: #2d2d2d; }
     code { font-family: 'JetBrains Mono', monospace; }
 
     .main-header {
         font-size: 3.2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         background-clip: text; text-align: center; font-weight: 800;
         margin: 2rem 0; letter-spacing: -1.5px;
     }
     .subtitle {
-        text-align: center; font-size: 1.1rem; color: #a5b4fc;
+        text-align: center; font-size: 1.1rem; color: #888;
         margin-top: -1.5rem; margin-bottom: 2rem; font-weight: 300;
     }
     .section-header {
-        font-size: 1.8rem; color: #c7d2fe; margin: 2.5rem 0 1.5rem 0; font-weight: 600;
-        border-left: 5px solid #667eea; padding-left: 1.2rem;
-        background: linear-gradient(90deg, rgba(102,126,234,0.1) 0%, transparent 100%);
+        font-size: 1.8rem; color: #1a1a1a; margin: 2.5rem 0 1.5rem 0; font-weight: 700;
+        border-left: 5px solid #ff0000; padding-left: 1.2rem;
+        background: linear-gradient(90deg, rgba(255,0,0,0.06) 0%, transparent 100%);
         padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 8px 8px 0;
     }
     .metric-card {
-        background: linear-gradient(135deg, rgba(102,126,234,0.15) 0%, rgba(118,75,162,0.15) 100%);
-        border: 1px solid rgba(102,126,234,0.3); border-radius: 16px; padding: 2rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.4); transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-        backdrop-filter: blur(10px); position: relative; overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(255,0,0,0.15); border-radius: 16px; padding: 2rem;
+        box-shadow: 0 4px 20px rgba(255,0,0,0.08); transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        position: relative; overflow: hidden;
     }
     .metric-card::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, #ff0000 0%, #ff6b6b 100%);
     }
     .metric-card:hover {
-        transform: translateY(-6px); box-shadow: 0 16px 48px rgba(102,126,234,0.3);
-        border-color: rgba(102,126,234,0.6);
+        transform: translateY(-5px); box-shadow: 0 12px 36px rgba(255,0,0,0.15);
+        border-color: rgba(255,0,0,0.35);
     }
     .metric-value {
         font-size: 2.8rem; font-weight: 800;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #ff0000 0%, #e60000 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         background-clip: text; margin: 0.8rem 0; letter-spacing: -1px;
     }
-    .metric-label { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
-    .metric-delta { font-size: 0.9rem; color: #10b981; font-weight: 600; margin-top: 0.5rem; }
+    .metric-label { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+    .metric-delta { font-size: 0.9rem; color: #16a34a; font-weight: 600; margin-top: 0.5rem; }
 
     .info-box {
-        background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.15) 100%);
-        border-left: 4px solid #3b82f6; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
+        background: #eff6ff; border-left: 4px solid #3b82f6;
+        padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
     }
     .success-box {
-        background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.15) 100%);
-        border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
+        background: #f0fdf4; border-left: 4px solid #22c55e;
+        padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
     }
     .warning-box {
-        background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(217,119,6,0.15) 100%);
-        border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
+        background: #fffbeb; border-left: 4px solid #f59e0b;
+        padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
     }
     .error-box {
-        background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.15) 100%);
-        border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
+        background: #fff1f1; border-left: 4px solid #ff0000;
+        padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
     }
 
+    /* ── SIDEBAR ── */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
-        border-right: 1px solid rgba(102,126,234,0.3);
+        background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+        border-right: none;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.3);
     }
-    [data-testid="stSidebar"] .stRadio > label { font-size: 1rem; color: #e2e8f0; font-weight: 600; }
+    /* Nav radio items */
+    [data-testid="stSidebar"] .stRadio > div { gap: 4px; }
+    [data-testid="stSidebar"] .stRadio label {
+        display: flex; align-items: center;
+        padding: 0.75rem 1rem; border-radius: 10px;
+        color: #aaaaaa !important; font-weight: 500; font-size: 0.95rem;
+        transition: all 0.2s ease; cursor: pointer;
+        border: 1px solid transparent;
+    }
+    [data-testid="stSidebar"] .stRadio label:hover {
+        background: rgba(255,255,255,0.07);
+        color: #ffffff !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p { color: #aaaaaa; }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 { color: #ffffff; }
+    /* Selected nav item */
+    [data-testid="stSidebar"] .stRadio [aria-checked="true"] + div label,
+    [data-testid="stSidebar"] .stRadio label:has(input:checked) {
+        background: rgba(255,0,0,0.18) !important;
+        color: #ff4444 !important;
+        border-color: rgba(255,0,0,0.3) !important;
+        font-weight: 700 !important;
+    }
+    /* Sidebar divider */
+    [data-testid="stSidebar"] hr {
+        border: none; height: 1px;
+        background: rgba(255,255,255,0.1);
+        margin: 1rem 0;
+    }
+    /* Sidebar button */
+    [data-testid="stSidebar"] .stButton > button {
+        background: rgba(255,0,0,0.15);
+        color: #ff6666; border: 1px solid rgba(255,0,0,0.3);
+        border-radius: 10px; font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background: #ff0000; color: white;
+        border-color: #ff0000; transform: none;
+        box-shadow: 0 4px 14px rgba(255,0,0,0.35);
+    }
 
+    /* ── Main buttons ── */
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white; border: none; border-radius: 10px; padding: 0.8rem 2.5rem;
-        font-weight: 600; font-size: 1rem; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-        box-shadow: 0 4px 16px rgba(102,126,234,0.4); text-transform: uppercase; letter-spacing: 0.5px;
+        background: #ff0000; color: white; border: none;
+        border-radius: 20px; padding: 0.8rem 2.5rem;
+        font-weight: 600; font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        box-shadow: 0 4px 16px rgba(255,0,0,0.25);
+        text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .stButton > button:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(102,126,234,0.5); }
+    .stButton > button:hover {
+        background: #cc0000; transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(255,0,0,0.4);
+    }
 
+    /* ── Tabs ── */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px; background: rgba(30,27,75,0.5); padding: 0.8rem; border-radius: 12px;
+        gap: 8px; background: #ffe8e8; padding: 0.6rem; border-radius: 12px;
     }
     .stTabs [data-baseweb="tab"] {
-        background: transparent; color: #94a3b8; border-radius: 8px;
-        padding: 0.8rem 1.8rem; font-weight: 600; transition: all 0.3s ease;
+        background: transparent; color: #888; border-radius: 8px;
+        padding: 0.7rem 1.6rem; font-weight: 600; transition: all 0.3s ease;
     }
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white; box-shadow: 0 4px 12px rgba(102,126,234,0.4);
+        background: #ff0000; color: white;
+        box-shadow: 0 4px 12px rgba(255,0,0,0.3);
     }
 
     hr {
         border: none; height: 2px;
-        background: linear-gradient(90deg, transparent 0%, rgba(102,126,234,0.6) 50%, transparent 100%);
+        background: linear-gradient(90deg, transparent 0%, rgba(255,0,0,0.3) 50%, transparent 100%);
         margin: 3rem 0;
     }
     .stSelectbox > div > div {
-        background: rgba(30,27,75,0.8); border: 1px solid rgba(102,126,234,0.3); border-radius: 8px;
+        background: #ffffff; border: 1px solid rgba(255,0,0,0.2); border-radius: 8px;
     }
     .stMultiSelect > div > div {
-        background: rgba(30,27,75,0.8); border: 1px solid rgba(102,126,234,0.3); border-radius: 8px;
+        background: #ffffff; border: 1px solid rgba(255,0,0,0.2); border-radius: 8px;
     }
-    .stSlider > div > div > div { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); }
+    .stSlider > div > div > div { background: #ff0000; }
     .dataframe { border-radius: 12px; overflow: hidden; }
 
     .footer {
-        text-align: center; padding: 3rem 0; color: #64748b;
-        border-top: 1px solid rgba(102,126,234,0.15); margin-top: 4rem; font-size: 0.9rem;
+        text-align: center; padding: 3rem 0; color: #999;
+        border-top: 1px solid rgba(255,0,0,0.15); margin-top: 4rem; font-size: 0.9rem;
     }
     @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(30px); }
         to   { opacity: 1; transform: translateY(0); }
     }
     .animated { animation: fadeInUp 0.6s ease-out; }
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: rgba(30,27,75,0.5); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 5px; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #fff5f5; }
+    ::-webkit-scrollbar-thumb { background: #ffb3b3; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ff0000; }
+    /* ── Force all Streamlit widget text dark on light background ── */
+    .stTextInput input, .stNumberInput input, .stTextArea textarea {
+        background: #ffffff; color: #1a1a1a !important;
+        border: 1px solid rgba(255,0,0,0.2); border-radius: 8px;
+    }
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span { color: #2d2d2d !important; }
+    [data-testid="stMetricValue"] { color: #ff0000 !important; }
+    [data-testid="stMetricLabel"] { color: #555 !important; }
+    [data-testid="stMetricDelta"] { color: #16a34a !important; }
+    /* Dataframe/table text */
+    .dataframe td, .dataframe th { color: #1a1a1a !important; background: #ffffff; }
+    /* Expander */
+    .streamlit-expanderHeader { color: #1a1a1a !important; font-weight: 600; }
+    /* Radio/checkbox labels in main area */
+    .stRadio label, .stCheckbox label { color: #2d2d2d !important; }
+    /* Plotly tooltip and annotation text override */
+    .js-plotly-plot .plotly .gtitle { fill: #1a1a1a !important; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -315,13 +381,29 @@ season_cols  = [c for c in df.columns if c.startswith('season_')]
 # SIDEBAR
 # ─────────────────────────────────────────────
 with st.sidebar:
+    # ── Logo / Brand ──
     st.markdown("""
-        <div style='text-align:center; padding:2.5rem 0 1.5rem 0;'>
-            <h2 style='color:#667eea; font-size:1.6rem; margin:0; font-weight:800;'>YouTube Trends</h2>
-            <p style='color:#64748b; font-size:0.85rem; margin-top:0.8rem; font-weight:300;'>
-                Analytics & ML Platform
-            </p>
+        <div style='text-align:center; padding:2rem 1rem 1.2rem 1rem;'>
+            <div style='display:inline-flex; align-items:center; gap:10px; justify-content:center;'>
+                <div style='background:#ff0000; border-radius:8px; width:40px; height:28px;
+                            display:flex; align-items:center; justify-content:center;'>
+                    <span style='color:white; font-size:14px;'>▶</span>
+                </div>
+                <span style='color:#ffffff; font-size:1.35rem; font-weight:800; letter-spacing:-0.5px;'>
+                    YouTube<span style='color:#ff4444;'>Analytics</span>
+                </span>
+            </div>
+            <p style='color:#666; font-size:0.78rem; margin:0.6rem 0 0 0; font-weight:400;
+                      text-transform:uppercase; letter-spacing:1.5px;'>ML Platform</p>
         </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    # ── Navigation label ──
+    st.markdown("""
+        <p style='color:#555; font-size:0.72rem; font-weight:600; text-transform:uppercase;
+                  letter-spacing:1.8px; margin:0.5rem 0 0.4rem 0.2rem;'>Navigation</p>
     """, unsafe_allow_html=True)
 
     page = st.radio(
@@ -331,40 +413,52 @@ with st.sidebar:
         label_visibility="collapsed"
     )
 
-    st.markdown("---")
+    st.markdown("<hr>", unsafe_allow_html=True)
 
+    # ── Dataset Info card ──
     st.markdown(f"""
-        <div style='padding:1.2rem; background:linear-gradient(135deg,rgba(102,126,234,0.2) 0%,rgba(118,75,162,0.2) 100%);
-                    border-radius:10px; margin-top:1.5rem; border:1px solid rgba(102,126,234,0.3);'>
-            <p style='color:#e2e8f0; font-size:0.8rem; margin:0; font-weight:600; text-transform:uppercase;
-                      letter-spacing:1px; margin-bottom:0.8rem;'>Dataset Info</p>
-            <p style='color:#cbd5e1; font-size:0.9rem; margin:0.3rem 0;'>
-                <strong>Videos:</strong> {len(df):,}
-            </p>
-            <p style='color:#cbd5e1; font-size:0.9rem; margin:0.3rem 0;'>
-                <strong>Features:</strong> {df.shape[1]}
-            </p>
-            <p style='color:#cbd5e1; font-size:0.9rem; margin:0.3rem 0;'>
-                <strong>Popular:</strong> {df['popular'].sum():,} ({df['popular'].mean()*100:.1f}%)
-            </p>
-            <p style='color:#cbd5e1; font-size:0.9rem; margin:0.3rem 0;'>
-                <strong>Catégories:</strong> {df['category_name'].nunique()}
-            </p>
-            <p style='color:#cbd5e1; font-size:0.9rem; margin:0.3rem 0;'>
-                <strong>Pays:</strong> {len(country_cols)}
-            </p>
+        <div style='padding:1.1rem 1.2rem;
+                    background:rgba(255,255,255,0.04);
+                    border-radius:12px;
+                    border:1px solid rgba(255,255,255,0.08);
+                    margin-top:0.5rem;'>
+            <p style='color:#ff4444; font-size:0.72rem; margin:0 0 0.9rem 0; font-weight:700;
+                      text-transform:uppercase; letter-spacing:1.8px;'>📁 Dataset Info</p>
+            <div style='display:flex; flex-direction:column; gap:0.5rem;'>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <span style='color:#888; font-size:0.83rem;'>Videos</span>
+                    <span style='color:#fff; font-size:0.88rem; font-weight:600;'>{len(df):,}</span>
+                </div>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <span style='color:#888; font-size:0.83rem;'>Features</span>
+                    <span style='color:#fff; font-size:0.88rem; font-weight:600;'>{df.shape[1]}</span>
+                </div>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <span style='color:#888; font-size:0.83rem;'>Popular</span>
+                    <span style='color:#ff6666; font-size:0.88rem; font-weight:600;'>{df['popular'].mean()*100:.1f}%</span>
+                </div>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <span style='color:#888; font-size:0.83rem;'>Catégories</span>
+                    <span style='color:#fff; font-size:0.88rem; font-weight:600;'>{df['category_name'].nunique()}</span>
+                </div>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <span style='color:#888; font-size:0.83rem;'>Pays</span>
+                    <span style='color:#fff; font-size:0.88rem; font-weight:600;'>{len(country_cols)}</span>
+                </div>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
+    st.markdown("<div style='margin-top:1rem;'></div>", unsafe_allow_html=True)
     if st.button("🔄 Refresh Data", use_container_width=True):
         st.cache_data.clear()
         st.rerun()
 
 # Couleurs de référence pour les graphiques
 PLOT_BG   = 'rgba(0,0,0,0)'
-FONT_COL  = '#e2e8f0'
-GRID_COL  = 'rgba(102,126,234,0.15)'
-MAT_BG    = '#1a1625'
+FONT_COL  = '#1a1a1a'
+GRID_COL  = 'rgba(0,0,0,0.07)'
+MAT_BG    = '#fff5f5'
 
 # ─────────────────────────────────────────────
 # PAGE 1 : DASHBOARD
@@ -396,57 +490,44 @@ if page == "🏠 Dashboard":
             <div class="metric-delta">likes + comments</div></div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    col1, col2 = st.columns([3, 2])
-
-    with col1:
-        st.markdown('<h2 class="section-header">Distribution des Vues</h2>', unsafe_allow_html=True)
-        fig = go.Figure()
-        fig.add_trace(go.Histogram(x=df[df['popular']==1]['views'], name='Populaire',
-                                   marker=dict(color='#10b981', opacity=0.7), nbinsx=40))
-        fig.add_trace(go.Histogram(x=df[df['popular']==0]['views'], name='Non-Populaire',
-                                   marker=dict(color='#ef4444', opacity=0.7), nbinsx=40))
-        fig.update_layout(barmode='overlay', xaxis_title='Views', yaxis_title='Frequency',
-                          plot_bgcolor=PLOT_BG, paper_bgcolor=PLOT_BG,
-                          font=dict(color=FONT_COL, size=12), height=400,
-                          showlegend=True, legend=dict(orientation="h", yanchor="bottom",
-                                                       y=1.02, xanchor="right", x=1))
-        fig.update_xaxes(type="log", gridcolor=GRID_COL)
-        fig.update_yaxes(gridcolor=GRID_COL)
-        st.plotly_chart(fig, use_container_width=True)
-
-    with col2:
-        st.markdown('<h2 class="section-header">Répartition par Pays</h2>', unsafe_allow_html=True)
-        if country_cols:
-            labels = [c.replace('country_', '') for c in country_cols]
-            values = [df[c].sum() for c in country_cols]
-        else:
-            labels, values = ['Inconnu'], [len(df)]
-        fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=0.5,
-                                     marker=dict(colors=['#667eea','#764ba2','#f093fb',
-                                                         '#4facfe','#43e97b','#fa709a','#fee140']),
-                                     textposition='outside', textinfo='label+percent')])
-        fig.update_layout(plot_bgcolor=PLOT_BG, paper_bgcolor=PLOT_BG,
-                          font=dict(color=FONT_COL, size=11), height=400, showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
 
     st.markdown('<h2 class="section-header">Performance par Catégorie</h2>', unsafe_allow_html=True)
+
     cat_stats = df.groupby('category_name').agg(
-        Count=('video_id','count'), Avg_Views=('views','mean'),
-        Avg_Engagement=('engagement','mean'), Popular_Rate=('popular','mean')
+        Count=('video_id','count'),
+        Avg_Views=('views','mean'),
+        Avg_Engagement=('engagement','mean'),
+        Popular_Rate=('popular','mean')
     ).reset_index().sort_values('Popular_Rate', ascending=False)
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        y=cat_stats['category_name'], x=cat_stats['Popular_Rate'], orientation='h',
-        marker=dict(color=cat_stats['Popular_Rate'], colorscale='Viridis', showscale=True,
-                    colorbar=dict(title=dict(text="Rate"))),
-        text=cat_stats['Popular_Rate'].apply(lambda x: f'{x:.1%}'), textposition='outside'
+        y=cat_stats['category_name'],
+        x=cat_stats['Popular_Rate'],
+        orientation='h',
+        marker=dict(
+            color=cat_stats['Popular_Rate'],
+            colorscale='Viridis',
+            showscale=True,
+            colorbar=dict(title=dict(text="Rate"))
+        ),
+        text=cat_stats['Popular_Rate'].apply(lambda x: f'{x:.1%}'),
+        textposition='outside'
     ))
-    fig.update_layout(xaxis_title='Taux de Popularité', plot_bgcolor=PLOT_BG,
-                      paper_bgcolor=PLOT_BG, font=dict(color=FONT_COL), height=500, showlegend=False)
+
+    fig.update_layout(
+        xaxis_title='Taux de Popularité',
+        plot_bgcolor=PLOT_BG,
+        paper_bgcolor=PLOT_BG,
+        font=dict(color=FONT_COL),
+        height=600  # 🔥 increase height to compensate removed graphs
+    )
+
     fig.update_xaxes(gridcolor=GRID_COL)
     fig.update_yaxes(gridcolor=GRID_COL)
+
     st.plotly_chart(fig, use_container_width=True)
+
 
 # ─────────────────────────────────────────────
 # PAGE 2 : EDA
@@ -477,15 +558,15 @@ elif page == "📊 EDA":
         fig.patch.set_facecolor(MAT_BG)
         axes = axes.flatten()
         for i, col in enumerate(quant_vars):
-            axes[i].hist(df[col].dropna(), bins=30, color='#667eea', alpha=0.7, edgecolor='white')
-            axes[i].set_title(f'Histogramme de {col}', color='white', fontsize=12, pad=10)
-            axes[i].set_xlabel(col, color='white', fontsize=10)
-            axes[i].set_ylabel('Fréquence', color='white', fontsize=10)
+            axes[i].hist(df[col].dropna(), bins=30, color='#ff0000', alpha=0.7, edgecolor='#ffcccc')
+            axes[i].set_title(f'Histogramme de {col}', color='#1a1a1a', fontsize=12, pad=10)
+            axes[i].set_xlabel(col, color='#444444', fontsize=10)
+            axes[i].set_ylabel('Frequence', color='#444444', fontsize=10)
             axes[i].set_facecolor(MAT_BG)
-            axes[i].tick_params(colors='white')
-            axes[i].spines['bottom'].set_color('white'); axes[i].spines['left'].set_color('white')
+            axes[i].tick_params(colors='#444444')
+            axes[i].spines['bottom'].set_color('#cccccc'); axes[i].spines['left'].set_color('#cccccc')
             axes[i].spines['top'].set_visible(False);    axes[i].spines['right'].set_visible(False)
-            axes[i].grid(alpha=0.2, color='white')
+            axes[i].grid(alpha=0.3, color='#dddddd')
         plt.tight_layout(); st.pyplot(fig); plt.close()
 
         st.markdown('<h2 class="section-header">Détection des Outliers (Boxplots)</h2>', unsafe_allow_html=True)
@@ -495,13 +576,13 @@ elif page == "📊 EDA":
         for i, col in enumerate(quant_vars):
             axes[i].boxplot(df[col].dropna(), vert=False, patch_artist=True,
                             boxprops=dict(facecolor='#ef4444', alpha=0.7),
-                            medianprops=dict(color='white', linewidth=2),
-                            whiskerprops=dict(color='white'), capprops=dict(color='white'))
-            axes[i].set_title(f'Boxplot de {col}', color='white', fontsize=12, pad=10)
-            axes[i].set_facecolor(MAT_BG); axes[i].tick_params(colors='white')
-            axes[i].spines['bottom'].set_color('white'); axes[i].spines['left'].set_color('white')
+                            medianprops=dict(color='#ffffff', linewidth=2),
+                            whiskerprops=dict(color='#cc0000'), capprops=dict(color='#cc0000'))
+            axes[i].set_title(f'Boxplot de {col}', color='#1a1a1a', fontsize=12, pad=10)
+            axes[i].set_facecolor(MAT_BG); axes[i].tick_params(colors='#444444')
+            axes[i].spines['bottom'].set_color('#cccccc'); axes[i].spines['left'].set_color('#cccccc')
             axes[i].spines['top'].set_visible(False);    axes[i].spines['right'].set_visible(False)
-            axes[i].grid(alpha=0.2, color='white', axis='x')
+            axes[i].grid(alpha=0.3, color='#dddddd', axis='x')
         plt.tight_layout(); st.pyplot(fig); plt.close()
         st.markdown("""<div class="info-box">
             <strong>Observation:</strong> Les variables quantitatives présentent une distribution
@@ -541,38 +622,36 @@ elif page == "📊 EDA":
 
     with tab4:
         st.markdown('<h2 class="section-header">Analyse Temporelle</h2>', unsafe_allow_html=True)
-        col1, col2 = st.columns(2)
-        with col1:
-            h_stats = df.groupby('publish_hour').agg(
-                Rate=('popular','mean'), Count=('video_id','count')).reset_index()
-            fig = make_subplots(specs=[[{"secondary_y": True}]])
-            fig.add_trace(go.Bar(x=h_stats['publish_hour'], y=h_stats['Count'],
-                                 name='Nb vidéos', marker_color='#667eea', opacity=0.6), secondary_y=False)
-            fig.add_trace(go.Scatter(x=h_stats['publish_hour'], y=h_stats['Rate'],
-                                     name='Taux popularité', mode='lines+markers',
-                                     line=dict(color='#10b981', width=3)), secondary_y=True)
-            fig.update_layout(title='Publication par Heure', plot_bgcolor=PLOT_BG,
-                              paper_bgcolor=PLOT_BG, font=dict(color=FONT_COL), height=400)
-            fig.update_xaxes(title_text='Heure', gridcolor=GRID_COL)
-            fig.update_yaxes(title_text='Nb vidéos', secondary_y=False, gridcolor=GRID_COL)
-            fig.update_yaxes(title_text='Taux popularité', secondary_y=True)
-            st.plotly_chart(fig, use_container_width=True)
 
-        with col2:
-            day_order = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-            d_stats = df.groupby('published_day_of_week').agg(
-                Rate=('popular','mean'), Count=('video_id','count')
-            ).reindex(day_order).reset_index()
-            fig = go.Figure()
-            fig.add_trace(go.Bar(x=d_stats['published_day_of_week'], y=d_stats['Rate'],
-                                 marker=dict(color=d_stats['Rate'], colorscale='Viridis', showscale=False),
-                                 text=d_stats['Rate'].apply(lambda x: f'{x:.1%}'), textposition='outside'))
-            fig.update_layout(title='Popularité par Jour', xaxis_title='Jour',
-                              yaxis_title='Taux de Popularité', plot_bgcolor=PLOT_BG,
-                              paper_bgcolor=PLOT_BG, font=dict(color=FONT_COL), height=400)
-            fig.update_xaxes(gridcolor=GRID_COL)
-            fig.update_yaxes(gridcolor=GRID_COL)
-            st.plotly_chart(fig, use_container_width=True)
+        day_order = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+        d_stats = df.groupby('published_day_of_week').agg(
+            Rate=('popular','mean'),
+            Count=('video_id','count')
+        ).reindex(day_order).reset_index()
+
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=d_stats['published_day_of_week'],
+            y=d_stats['Rate'],
+            marker=dict(color=d_stats['Rate'], colorscale='Viridis', showscale=False),
+            text=d_stats['Rate'].apply(lambda x: f'{x:.1%}'),
+            textposition='outside'
+        ))
+
+        fig.update_layout(
+            title='Popularité par Jour',
+            xaxis_title='Jour',
+            yaxis_title='Taux de Popularité',
+            plot_bgcolor=PLOT_BG,
+            paper_bgcolor=PLOT_BG,
+            font=dict(color=FONT_COL),
+            height=450  # 🔥 slightly bigger to fill space
+        )
+
+        fig.update_xaxes(gridcolor=GRID_COL)
+        fig.update_yaxes(gridcolor=GRID_COL)
+
+        st.plotly_chart(fig, use_container_width=True)
 
         st.markdown('<h2 class="section-header">Week-end vs Semaine</h2>', unsafe_allow_html=True)
         we_stats = df.groupby('is_week_end')['popular'].agg(['mean','count']).reset_index()
@@ -829,7 +908,7 @@ elif page == "🤖 Machine Learning":
                     z=cm, x=['Predicted Non-Popular','Predicted Popular'],
                     y=['Actual Non-Popular','Actual Popular'],
                     colorscale='Purples', text=cm, texttemplate='%{text}',
-                    textfont={"size":18,"color":"white"}, showscale=False))
+                    textfont={"size":18,"color":"black"}, showscale=False))
                 fig.update_layout(plot_bgcolor=PLOT_BG, paper_bgcolor=PLOT_BG,
                                   font=dict(color=FONT_COL), height=400, xaxis=dict(side='bottom'))
                 st.plotly_chart(fig, use_container_width=True)
